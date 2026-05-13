@@ -2150,9 +2150,9 @@ body {
 .cat-runner {
   position: fixed;
   bottom: 60px;
-  right: -150px;
-  width: 90px;
-  height: 45px;
+  right: -180px;
+  width: 112px;
+  height: 56px;
   z-index: 60;
   pointer-events: none;
   opacity: 0;
@@ -2171,6 +2171,28 @@ body {
 }
 
 .cat-svg { width: 100%; height: 100%; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4)); }
+
+.cat-faller {
+  position: fixed;
+  top: -80px;
+  left: 0;
+  width: 112px;
+  height: 56px;
+  z-index: 61;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.cat-faller.fall {
+  animation: catFall var(--cat-dur, 1.8s) ease-in forwards;
+}
+
+@keyframes catFall {
+  0%   { top: -80px;  opacity: 0;   transform: rotate(0deg); }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { top: 112vh;  opacity: 0;   transform: rotate(var(--cat-spin, 720deg)); }
+}
 
 .meow-toast {
   position: fixed;

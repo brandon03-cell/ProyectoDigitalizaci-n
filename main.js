@@ -139,10 +139,43 @@
   updateUI();
   animateSlideCounters(slides[0]);
 
+  function spawnCat(bottomOffset, delay) {
+    setTimeout(() => {
+      const cat = catRunner.cloneNode(true);
+      cat.id = '';
+      cat.style.bottom = (bottomOffset || 60) + 'px';
+      document.body.appendChild(cat);
+      void cat.offsetWidth;
+      cat.classList.add('run');
+      cat.addEventListener('animationend', () => cat.remove());
+    }, delay || 0);
+  }
+
   function launchCat() {
-    catRunner.classList.remove('run');
-    void catRunner.offsetWidth;
-    catRunner.classList.add('run');
+    spawnCat(60, 0);
+  }
+
+  function spawnFallingCat(leftPct, delay, widthPx) {
+    setTimeout(() => {
+      const cat = catRunner.cloneNode(true);
+      cat.id = '';
+      cat.className = 'cat-faller';
+      cat.style.left = Math.max(1, Math.min(88, leftPct)) + '%';
+      const isBig = !!widthPx;
+      const spins = isBig ? 360 : (720 + Math.floor(Math.random() * 3) * 360);
+      const dir = Math.random() > 0.5 ? 1 : -1;
+      const dur = isBig ? 2.6 : (1.3 + Math.random() * 0.7);
+      cat.style.setProperty('--cat-spin', (dir * spins) + 'deg');
+      cat.style.setProperty('--cat-dur', dur + 's');
+      if (isBig) {
+        cat.style.width  = widthPx + 'px';
+        cat.style.height = (widthPx / 2) + 'px';
+      }
+      document.body.appendChild(cat);
+      void cat.offsetWidth;
+      cat.classList.add('fall');
+      cat.addEventListener('animationend', () => cat.remove());
+    }, delay);
   }
 
   let konami = [];
@@ -155,24 +188,42 @@
       meowToast.textContent = '✦ konami unlocked · gato infinito ✦';
       meowToast.classList.add('show');
       setTimeout(() => meowToast.classList.remove('show'), 2500);
-      for (let i = 0; i < 5; i++) {
-        setTimeout(() => launchCat(), i * 800);
+      const rainCount = 16;
+      for (let i = 0; i < rainCount; i++) {
+        const leftPct = 4 + (i / (rainCount - 1)) * 84 + (Math.random() - 0.5) * 14;
+        spawnFallingCat(leftPct, i * 180);
       }
+      spawnFallingCat(44, rainCount * 180 + 500, 260);
       konami = [];
     }
   });
 
-  const paws = document.querySelectorAll('.cover-paw, .end-paw');
-  let pawCount = 0;
-  paws.forEach(paw => {
-    paw.addEventListener('click', () => {
-      pawCount++;
-      meowToast.textContent = pawCount < 3 ? 'miau ·' : pawCount < 6 ? 'miau miau ·' : '✦ miau, has encontrado al gato ✦';
+  const coverPaw = document.querySelector('.cover-paw');
+  let coverPawCount = 0;
+  if (coverPaw) {
+    coverPaw.addEventListener('click', () => {
+      coverPawCount++;
+      meowToast.textContent = coverPawCount === 1 ? 'miau ·' : coverPawCount === 2 ? 'miau miau ·' : '✦ miau, has encontrado al gato ✦';
       meowToast.classList.add('show');
-      launchCat();
+      spawnCat(60, 0);
       setTimeout(() => meowToast.classList.remove('show'), 2000);
     });
-  });
+  }
+
+  const endPaw = document.getElementById('endPaw');
+  let endPawCount = 0;
+  if (endPaw) {
+    endPaw.addEventListener('click', () => {
+      endPawCount++;
+      for (let i = 0; i < endPawCount; i++) {
+        spawnCat(50 + (i % 4) * 22, i * 280);
+      }
+      const msgs = ['miau ·', 'miau miau ·', 'miau miau miau ·', '✦ invasión gatuna ✦', '✦ catpocalipsis ✦'];
+      meowToast.textContent = msgs[Math.min(endPawCount - 1, msgs.length - 1)];
+      meowToast.classList.add('show');
+      setTimeout(() => meowToast.classList.remove('show'), 2500);
+    });
+  }
 
   const scaleNum = document.getElementById('scaleNum');
   if (scaleNum) {

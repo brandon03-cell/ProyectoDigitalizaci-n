@@ -4,6 +4,10 @@ Presentación web interactiva desarrollada como proyecto final del ciclo de **FP
 
 **Autoría:** Alba Ruiz · Melissa Frida · Brandon David
 
+<a href="https://brandon03-cell.github.io/ProyectoDigitalizaci-n/" target="_blank">
+  <img src="https://img.shields.io/badge/Ver%20presentaci%C3%B3n-%E2%86%92-FFDB00?style=for-the-badge&labelColor=001833&color=FFDB00&logoColor=001833" alt="Ver presentación" />
+</a>
+
 ---
 
 ## Estructura del proyecto

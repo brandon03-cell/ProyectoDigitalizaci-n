@@ -641,14 +641,40 @@
 </main>
 
 <div class="cat-runner" id="catRunner" aria-hidden="true">
-  <svg viewBox="0 0 120 60" class="cat-svg">
-    <g fill="#FFDB00" stroke="#001833" stroke-width="0.6">
-      <path d="M10,40 Q8,30 14,28 L18,20 L24,30 L40,30 L46,20 L52,28 Q58,30 56,40 L56,46 Q56,50 52,50 L14,50 Q10,50 10,46 Z"/>
-      <path d="M56,40 Q70,38 80,30 Q90,22 100,28 Q108,32 100,38 Q92,42 80,42" fill="none"/>
-      <circle cx="20" cy="34" r="1.2" fill="#001833"/>
-      <circle cx="26" cy="34" r="1.2" fill="#001833"/>
-      <path d="M22,38 L24,40 L26,38" fill="none" stroke="#001833" stroke-width="0.8"/>
-    </g>
+  <svg viewBox="0 0 160 80" class="cat-svg" xmlns="http://www.w3.org/2000/svg">
+    <!-- tail -->
+    <path d="M122,50 C132,44 143,30 137,18 C134,12 126,13 127,21 C128,30 122,40 116,48" fill="none" stroke="#FFDB00" stroke-width="6" stroke-linecap="round"/>
+    <path d="M122,50 C132,44 143,30 137,18 C134,12 126,13 127,21 C128,30 122,40 116,48" fill="none" stroke="#001629" stroke-width="0.9" stroke-linecap="round"/>
+    <!-- body -->
+    <ellipse cx="82" cy="52" rx="40" ry="17" fill="#FFDB00" stroke="#001629" stroke-width="1.2"/>
+    <!-- neck filler (no stroke — head+body outlines overdraw the seams) -->
+    <path d="M51,24 Q63,30 71,38 Q65,50 53,56 Q45,50 43,42 Q43,32 51,24 Z" fill="#FFDB00"/>
+    <path d="M51,24 Q63,30 71,38" fill="none" stroke="#001629" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M43,42 Q45,50 53,56" fill="none" stroke="#001629" stroke-width="1.1" stroke-linecap="round"/>
+    <!-- head -->
+    <circle cx="35" cy="26" r="17" fill="#FFDB00" stroke="#001629" stroke-width="1.2"/>
+    <!-- ears -->
+    <path d="M21,16 L15,2 L29,12 Z" fill="#FFDB00" stroke="#001629" stroke-width="1.1" stroke-linejoin="round"/>
+    <path d="M22,15 L17,6 L27,12 Z" fill="#c98a00"/>
+    <path d="M31,12 L35,1 L43,13 Z" fill="#FFDB00" stroke="#001629" stroke-width="1.1" stroke-linejoin="round"/>
+    <path d="M32,12 L35,5 L41,13 Z" fill="#c98a00"/>
+    <!-- eye -->
+    <ellipse cx="29" cy="26" rx="3.5" ry="3" fill="#001629"/>
+    <circle cx="27.5" cy="24.5" r="1.1" fill="white"/>
+    <!-- nose -->
+    <path d="M17,31 L14,29 L15,34 Z" fill="#c96a2a"/>
+    <!-- mouth -->
+    <path d="M15,34 Q13,36 12,34" fill="none" stroke="#001629" stroke-width="1" stroke-linecap="round"/>
+    <!-- whiskers -->
+    <line x1="15" y1="31" x2="1"  y2="26" stroke="#001629" stroke-width="0.9" stroke-linecap="round"/>
+    <line x1="15" y1="33" x2="1"  y2="33" stroke="#001629" stroke-width="0.9" stroke-linecap="round"/>
+    <line x1="15" y1="35" x2="2"  y2="39" stroke="#001629" stroke-width="0.9" stroke-linecap="round"/>
+    <!-- front legs -->
+    <path d="M54,64 C50,70 46,76 44,78 Q48,80 52,78 C54,74 58,68 60,64 Z" fill="#FFDB00" stroke="#001629" stroke-width="1"/>
+    <path d="M66,65 C64,72 62,76 60,78 Q64,80 68,78 C70,74 70,68 70,65 Z" fill="#FFDB00" stroke="#001629" stroke-width="1"/>
+    <!-- back legs -->
+    <path d="M98,64 C96,70 94,76 92,78 Q96,80 100,78 C102,74 104,68 104,64 Z" fill="#FFDB00" stroke="#001629" stroke-width="1"/>
+    <path d="M110,64 C110,70 110,76 108,78 Q112,80 116,78 C116,74 116,68 114,64 Z" fill="#FFDB00" stroke="#001629" stroke-width="1"/>
   </svg>
 </div>
 
