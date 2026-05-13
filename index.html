@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IKEA · Transformación Digital · 2025-2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="noise-overlay"></div>
+<div class="vignette"></div>
+
+<aside class="side-nav" id="sideNav">
+  <div class="side-nav-inner">
+    <div class="side-nav-brand">
+      <span class="brand-dot"></span>
+      <span class="brand-label">IKEA · TD</span>
+    </div>
+    <ul id="navList"></ul>
+    <div class="side-nav-foot">
+      <span class="foot-key">↑↓</span>
+      <span class="foot-label">Navegar</span>
+    </div>
+  </div>
+</aside>
+
+<header class="top-bar">
+  <div class="top-bar-left">
+    <img src="multimedia/IkeaLogo.svg.png" alt="IKEA" class="brand-logo" onerror="this.style.display='none'" />
+    <div class="top-bar-divider"></div>
+    <div class="top-bar-meta">
+      <span class="meta-line">Transformación Digital</span>
+      <span class="meta-sub">FP · Digitalización Empresarial · 2025-2026</span>
+    </div>
+  </div>
+  <div class="top-bar-right">
+    <div class="slide-counter">
+      <span id="currentSlide">01</span>
+      <span class="counter-sep">/</span>
+      <span id="totalSlides">10</span>
+    </div>
+  </div>
+</header>
+
+<button class="nav-arrow nav-prev" id="prevBtn" aria-label="Anterior">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="15 18 9 12 15 6"/></svg>
+</button>
+<button class="nav-arrow nav-next" id="nextBtn" aria-label="Siguiente">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="9 18 15 12 9 6"/></svg>
+</button>
+
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<main class="deck" id="deck">
+
+  <section class="slide slide-cover" data-slide="0" data-title="Portada">
+    <div class="cover-grid">
+      <div class="cover-left">
+        <div class="cover-eyebrow">
+          <span class="eyebrow-line"></span>
+          <span>Proyecto Final · 2025-2026</span>
+        </div>
+        <h1 class="cover-title">
+          <span style="white-space:nowrap"><span class="float-word" style="--d:0s">Trans</span><span class="float-word" style="--d:.1s">forma</span><span class="float-word" style="--d:.2s">ción</span></span>
+          <em class="cover-em">Digital</em>
+          <span class="float-word small" style="--d:.4s">de IKEA</span>
+        </h1>
+        <p class="cover-lead">
+          Del catálogo a la nube. De la tienda a la casa conectada. Un caso de estudio sobre
+          cómo una empresa fundada en 1943 se reinventa en la era del dato.
+        </p>
+        <div class="cover-authors">
+          <div class="authors-label">Elaborado por</div>
+          <div class="authors-names">
+            <span>Alba Ruiz</span>
+            <span>Melissa Frida</span>
+            <span>Brandon David</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cover-right">
+        <div class="cover-monogram">
+          <svg viewBox="0 0 400 400" class="monogram-svg">
+            <defs>
+              <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFDB00" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#0058A3" stop-opacity="0.7"/>
+              </linearGradient>
+            </defs>
+            <circle cx="200" cy="200" r="180" fill="none" stroke="url(#ringGrad)" stroke-width="1" class="ring ring-1"/>
+            <circle cx="200" cy="200" r="140" fill="none" stroke="rgba(255,219,0,0.25)" stroke-width="1" stroke-dasharray="2 6" class="ring ring-2"/>
+            <circle cx="200" cy="200" r="100" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1" class="ring ring-3"/>
+            <text x="200" y="218" text-anchor="middle" dominant-baseline="middle" class="monogram-text">IKEA</text>
+            <g class="orbit-dot orbit-1"><circle r="3" fill="#FFDB00"/></g>
+            <g class="orbit-dot orbit-2"><circle r="2" fill="#FFFFFF"/></g>
+            <g class="orbit-dot orbit-3"><circle r="2" fill="#0058A3"/></g>
+          </svg>
+        </div>
+        <div class="cover-stats">
+          <div class="stat-pill"><span>50+</span><small>países</small></div>
+          <div class="stat-pill"><span>1943</span><small>fundación</small></div>
+          <div class="stat-pill"><span>465</span><small>tiendas</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-paw" title="Hola, gato.">
+      <svg viewBox="0 0 64 64" fill="currentColor">
+        <ellipse cx="32" cy="42" rx="14" ry="11"/>
+        <ellipse cx="14" cy="28" rx="6" ry="8"/>
+        <ellipse cx="50" cy="28" rx="6" ry="8"/>
+        <ellipse cx="22" cy="14" rx="5" ry="7"/>
+        <ellipse cx="42" cy="14" rx="5" ry="7"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="slide slide-context" data-slide="1" data-title="Contexto & Fases">
+    <div class="slide-header">
+      <div class="slide-number">01</div>
+      <h2 class="slide-title">Contexto & Fases</h2>
+      <div class="slide-sub">Historia, catalizadores y proceso de transformación</div>
+    </div>
+
+    <div class="ctx-phases-grid">
+      <div class="ctx-col">
+        <article class="context-card">
+          <div class="card-tag">Origen</div>
+          <h3>De Småland al mundo</h3>
+          <p>Fundada por Ingvar Kamprad en 1943 en la Suecia rural. Hoy opera en más de 50 países con 465 tiendas.</p>
+          <div class="card-figures">
+            <div><span>1943</span><small>Fundación</small></div>
+            <div><span>50+</span><small>Países</small></div>
+            <div><span>465</span><small>Tiendas</small></div>
+          </div>
+        </article>
+        <article class="context-card">
+          <div class="card-tag">2020</div>
+          <h3>La pandemia, acelerador</h3>
+          <p>El cierre del <strong>75%</strong> de las tiendas físicas comprimió años de hoja de ruta digital en semanas.</p>
+        </article>
+        <article class="context-card">
+          <div class="card-tag">Liderazgo</div>
+          <h3>Una nueva CDO</h3>
+          <p>Barbara Martin Coppola (Google, Samsung, Grubhub). Mandato: dato en el centro, fusión físico-digital.</p>
+        </article>
+        <article class="context-card">
+          <div class="card-tag">Inversión</div>
+          <h3>200 M$ en talento</h3>
+          <p>23 adquisiciones tech, entre ellas <strong>Geomagical Labs</strong> (IA y visión 3D).</p>
+        </article>
+      </div>
+
+      <div class="phases-col">
+        <div class="step-card">
+          <div class="step-tag">2018–19 · Estrategia</div>
+          <h4>Sentar las bases</h4>
+          <p>Nombramiento de CDO, adquisición de 23 empresas tecnológicas y el dato como activo central.</p>
+          <div class="step-metric"><span>+200 M$</span> en talento tech</div>
+        </div>
+        <div class="step-card">
+          <div class="step-tag">2020–21 · Aceleración</div>
+          <h4>Tienda como almacén</h4>
+          <p>Click & Collect, tiendas como hubs logísticos y refuerzo del e-commerce durante la pandemia.</p>
+          <div class="step-metric"><span>+44%</span> ventas online (Francia)</div>
+        </div>
+        <div class="step-card">
+          <div class="step-tag">2022–25 · Consolidación</div>
+          <h4>SAP S/4HANA y omnicanal</h4>
+          <p>ERP progresivo, expansión urbana (París, Madeleine) y algoritmos de routing logístico.</p>
+          <div class="step-metric"><span>+21%</span> visitas online FY24</div>
+        </div>
+        <div class="step-card">
+          <div class="step-tag">2025+ · Expansión</div>
+          <h4>IA generativa e IoT</h4>
+          <p>Experiencia figital, computación espacial y el hogar como ecosistema inteligente.</p>
+          <div class="step-metric"><span>2030</span> visión a largo plazo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-tech" data-slide="2" data-title="Tecnologías">
+    <div class="slide-header">
+      <div class="slide-number">02</div>
+      <h2 class="slide-title">Arquitectura tecnológica</h2>
+      <div class="slide-sub">Seis capas integradas en torno al dato</div>
+    </div>
+
+    <div class="tech-bento">
+      <div class="bento-tile tile-ai">
+        <div class="tile-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <div class="tile-label">Inteligencia Artificial</div>
+        <h3>IKEA Kreativ</h3>
+        <p>IA generativa y modelado 3D para diseñar espacios completos desde el navegador. AI Innovation Lab interno con modelos de demanda adaptativa.</p>
+      </div>
+
+      <div class="bento-tile tile-ar">
+        <div class="tile-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="tile-label">Realidad Aumentada</div>
+        <h3>IKEA Place</h3>
+        <p>Visualización de mobiliario en el propio hogar antes de comprar. Geomagical Labs aporta escaneo 3D de habitaciones.</p>
+      </div>
+
+      <div class="bento-tile tile-iot">
+        <div class="tile-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <div class="tile-label">Internet de las Cosas</div>
+        <h3>DIRIGERA</h3>
+        <p>Sensores en almacenes para mantenimiento predictivo y gama de hogar inteligente compatible con los principales ecosistemas.</p>
+      </div>
+
+      <div class="bento-tile tile-robot">
+        <div class="tile-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M7 8V4M17 8V4M9 14h.01M15 14h.01"/></svg>
+        </div>
+        <div class="tile-label">Robótica</div>
+        <h3>Picking automatizado</h3>
+        <p>Sistemas robóticos coordinados con IA para preparación, clasificación y reabastecimiento en centros logísticos.</p>
+      </div>
+
+      <div class="bento-tile tile-data">
+        <div class="tile-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"/></svg>
+        </div>
+        <div class="tile-label">Big Data</div>
+        <h3>Dato como producto</h3>
+        <p>Dominios maestros separados (producto, partner, finanzas, cliente) con propietarios y estándares de calidad propios.</p>
+      </div>
+
+      <div class="bento-tile tile-cloud">
+        <div class="tile-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+        </div>
+        <div class="tile-label">Cloud Computing</div>
+        <h3>Híbrida AWS · Azure</h3>
+        <p>Arquitectura híbrida con nubes públicas para escalado elástico e infraestructura privada para datos sensibles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-fy24" data-slide="3" data-title="Resultados FY24">
+    <div class="slide-header">
+      <div class="slide-number">03</div>
+      <h2 class="slide-title">Resultados FY24</h2>
+      <div class="slide-sub">El balance del año fiscal en cifras</div>
+    </div>
+
+    <div class="fy-grid">
+      <div class="fy-hero">
+        <div class="fy-hero-label">Facturación global del grupo</div>
+        <div class="fy-hero-number">
+          <span class="num-fluid" data-target="45000">0</span>
+          <span class="num-unit">M€</span>
+        </div>
+        <div class="fy-hero-sub">Año fiscal 2024 · ingresos consolidados</div>
+        <div class="fy-hero-bars">
+          <div class="fy-bar"><span style="--w:88%"></span><label>FY24</label></div>
+          <div class="fy-bar"><span style="--w:80%"></span><label>FY23</label></div>
+          <div class="fy-bar"><span style="--w:73%"></span><label>FY22</label></div>
+        </div>
+      </div>
+
+      <div class="fy-panel panel-a">
+        <div class="panel-tag">Tráfico digital</div>
+        <div class="panel-value">+<span class="num-fluid" data-target="21">0</span>%</div>
+        <div class="panel-desc">Visitas a la web y app respecto al ejercicio anterior</div>
+        <div class="panel-spark">
+          <svg viewBox="0 0 200 60" preserveAspectRatio="none">
+            <polyline points="0,50 25,46 50,42 75,38 100,32 125,28 150,22 175,15 200,8" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="fy-panel panel-b">
+        <div class="panel-tag">Cuota e-commerce</div>
+        <div class="panel-value">~<span class="num-fluid" data-target="30">0</span>%</div>
+        <div class="panel-desc">Sobre el total de ventas en mercados clave</div>
+        <div class="panel-ring">
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="8" stroke-dasharray="79 264" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="fy-panel panel-c">
+        <div class="panel-tag">Tiendas físicas</div>
+        <div class="panel-value">+<span class="num-fluid" data-target="45" data-decimal="1">0</span>%</div>
+        <div class="panel-desc">Crecimiento en visitas presenciales · estrategia figital</div>
+      </div>
+
+      <div class="fy-panel panel-d">
+        <div class="panel-tag">Mercados</div>
+        <div class="panel-value">50<span class="plus">+</span></div>
+        <div class="panel-desc">Países con presencia operativa</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-erp" data-slide="4" data-title="Core operativo">
+    <div class="slide-header">
+      <div class="slide-number">04</div>
+      <h2 class="slide-title">El corazón operativo</h2>
+      <div class="slide-sub">SAP S/4HANA, Cloud híbrida y Workday HCM</div>
+    </div>
+
+    <div class="erp-layout">
+      <div class="erp-roadmap">
+        <h3 class="roadmap-title">SAP S/4HANA · Hoja de ruta</h3>
+        <div class="roadmap-rail">
+          <div class="rail-line"></div>
+          <div class="rail-fill"></div>
+
+          <div class="rail-point done" style="--pos:0%">
+            <div class="point-marker"></div>
+            <div class="point-label">
+              <div class="point-year">2022</div>
+              <div class="point-name">Finanzas · primer release</div>
+            </div>
+          </div>
+          <div class="rail-point done" style="--pos:33%">
+            <div class="point-marker"></div>
+            <div class="point-label">
+              <div class="point-year">2025</div>
+              <div class="point-name">Finanzas · go-live masivo</div>
+            </div>
+          </div>
+          <div class="rail-point active" style="--pos:66%">
+            <div class="point-marker"></div>
+            <div class="point-label">
+              <div class="point-year">2026</div>
+              <div class="point-name">Aprovisionamiento</div>
+            </div>
+          </div>
+          <div class="rail-point" style="--pos:100%">
+            <div class="point-marker"></div>
+            <div class="point-label">
+              <div class="point-year">2027</div>
+              <div class="point-name">Logística</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="erp-stack">
+        <div class="stack-card stack-cloud">
+          <div class="stack-head">
+            <span class="stack-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            </span>
+            <div class="stack-head-text">
+              <span class="stack-name">Cloud Híbrida</span>
+              <span class="stack-name-sub">AWS · Azure · Infraestructura privada</span>
+            </div>
+          </div>
+          <div class="stack-body">
+            <div class="stack-row-v">
+              <div class="stack-provider-info">
+                <span class="provider-dot aws"></span>
+                <div>
+                  <div class="stack-provider-name">AWS</div>
+                  <div class="stack-use">E-commerce y gestión de picos de demanda (Black Friday)</div>
+                </div>
+              </div>
+              <div class="stack-bar"><span style="--w:85%;--di:0.15s"></span></div>
+            </div>
+            <div class="stack-row-v">
+              <div class="stack-provider-info">
+                <span class="provider-dot azure"></span>
+                <div>
+                  <div class="stack-provider-name">Azure</div>
+                  <div class="stack-use">Data lake corporativo y analítica avanzada</div>
+                </div>
+              </div>
+              <div class="stack-bar"><span style="--w:70%;--di:0.25s"></span></div>
+            </div>
+            <div class="stack-row-v">
+              <div class="stack-provider-info">
+                <span class="provider-dot priv"></span>
+                <div>
+                  <div class="stack-provider-name">Privada</div>
+                  <div class="stack-use">Datos sensibles y cumplimiento normativo RGPD</div>
+                </div>
+              </div>
+              <div class="stack-bar"><span style="--w:45%;--di:0.35s"></span></div>
+            </div>
+          </div>
+          <div class="stack-chips">
+            <span>SLA 99,99%</span>
+            <span>CAPEX → OPEX</span>
+            <span>Escalado elástico</span>
+          </div>
+          <div class="stack-foot">Arquitectura híbrida · resiliencia garantizada</div>
+        </div>
+
+        <div class="stack-card stack-hcm">
+          <div class="stack-head">
+            <span class="stack-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <div class="stack-head-text">
+              <span class="stack-name">Workday HCM</span>
+              <span class="stack-name-sub">Human Capital Management</span>
+            </div>
+          </div>
+          <div class="stack-body">
+            <p>Plataforma cloud para gestionar, capacitar y aprovechar el talento global. Accesible desde móvil para toda la plantilla del grupo Inter IKEA, con datos en tiempo real sobre formación, rendimiento y desarrollo profesional.</p>
+            <div class="hcm-stats">
+              <div class="hcm-stat">
+                <span class="hcm-num">100K<span class="hcm-plus">+</span></span>
+                <small>empleados globales</small>
+              </div>
+              <div class="hcm-stat">
+                <span class="hcm-num">50<span class="hcm-plus">+</span></span>
+                <small>países</small>
+              </div>
+              <div class="hcm-stat">
+                <span class="hcm-num">24/7</span>
+                <small>acceso móvil</small>
+              </div>
+            </div>
+          </div>
+          <div class="stack-chips">
+            <span>Formación digital</span>
+            <span>Gestión del talento</span>
+            <span>RRHH en la nube</span>
+            <span>Cultura ágil</span>
+          </div>
+          <div class="stack-foot">Inter IKEA Group · escala global</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-people" data-slide="5" data-title="Personas">
+    <div class="slide-header">
+      <div class="slide-number">05</div>
+      <h2 class="slide-title">Reskilling: el factor humano</h2>
+      <div class="slide-sub">La tecnología sin las personas no transforma nada</div>
+    </div>
+
+    <div class="people-layout">
+      <div class="people-hero">
+        <div class="people-num">
+          <span class="num-fluid" data-target="8500">0</span>
+        </div>
+        <div class="people-num-label">empleados reconvertidos</div>
+        <div class="people-num-desc">De roles tradicionales en tienda a <strong>consultores de diseño de interiores</strong>, apoyados por IKEA Kreativ y herramientas de visualización 3D.</div>
+      </div>
+
+      <div class="people-side">
+        <div class="people-card">
+          <div class="people-tag">Programa global</div>
+          <h4>30.000 empleados en formación</h4>
+          <p>Plan integral en IA, analítica de datos, agilidad y seguridad digital. La formación interna alinea las soluciones técnicas con la cultura de la empresa.</p>
+        </div>
+        <div class="people-card">
+          <div class="people-tag">Nuevos roles</div>
+          <h4>Perfiles que antes no existían</h4>
+          <div class="role-chips">
+            <span>Data Scientist</span>
+            <span>ML Engineer</span>
+            <span>Cloud Architect</span>
+            <span>UX Lead</span>
+            <span>Product Manager Digital</span>
+          </div>
+        </div>
+        <div class="people-card">
+          <div class="people-tag">Cultura</div>
+          <h4>Ágil, abierta, en comunidad</h4>
+          <p>Scrum y SAFe, hackathones internos, comunidades de práctica y espacios de co-creación entre países y áreas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-sustain" data-slide="6" data-title="Sostenibilidad">
+    <div class="slide-header">
+      <div class="slide-number">06</div>
+      <h2 class="slide-title">Food is Precious</h2>
+      <div class="slide-sub">Cuando la digitalización sirve para no desperdiciar</div>
+    </div>
+
+    <div class="sustain-layout">
+      <div class="sustain-main">
+        <div class="sustain-eyebrow">Iniciativa IoT + IA</div>
+        <h3 class="sustain-headline">Una balanza inteligente que aprende a no tirar comida.</h3>
+        <p class="sustain-body">
+          IKEA equipa las cocinas de sus restaurantes con balanzas conectadas y visión por computador que identifican qué alimentos se desechan, en qué momento y en qué cantidad. Los datos alimentan modelos que ajustan compras, raciones y menús.
+        </p>
+
+        <div class="sustain-bigfig">
+          <div class="bigfig-pct"><span class="num-fluid" data-target="54">0</span><span class="bigfig-sym">%</span></div>
+          <div class="bigfig-label">menos desperdicio de comida</div>
+        </div>
+
+        <div class="sustain-extra">
+          <div class="extra-line"><span>+20 M</span><small>comidas evitadas (2022)</small></div>
+          <div class="extra-line"><span>36.000 t</span><small>CO₂ evitadas</small></div>
+        </div>
+      </div>
+
+      <div class="sustain-visual">
+        <div class="scale-card">
+          <div class="scale-top">
+            <div class="scale-led"></div>
+            <div class="scale-screen">
+              <div class="scale-screen-label">peso · descartado</div>
+              <div class="scale-screen-num" id="scaleNum">3.2 <small>kg</small></div>
+              <div class="scale-screen-bars">
+                <span style="--h:40%"></span>
+                <span style="--h:65%"></span>
+                <span style="--h:30%"></span>
+                <span style="--h:80%"></span>
+                <span style="--h:55%"></span>
+                <span style="--h:45%"></span>
+                <span style="--h:70%"></span>
+              </div>
+            </div>
+          </div>
+          <div class="scale-plate"></div>
+          <div class="scale-base">
+            <div class="scale-base-label">FOOD IS PRECIOUS · IoT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-vision" data-slide="7" data-title="Visión 2030">
+    <div class="slide-header">
+      <div class="slide-number">07</div>
+      <h2 class="slide-title">Visión 2030</h2>
+      <div class="slide-sub">El hogar como ecosistema inteligente</div>
+    </div>
+
+    <div class="vision-layout">
+      <div class="vision-art">
+        <div class="vision-house">
+          <svg viewBox="0 0 400 320">
+            <defs>
+              <linearGradient id="houseGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="rgba(255,219,0,0.4)"/>
+                <stop offset="100%" stop-color="rgba(0,88,163,0.3)"/>
+              </linearGradient>
+            </defs>
+            <path d="M50 180 L200 60 L350 180 L350 280 L50 280 Z" fill="none" stroke="url(#houseGrad)" stroke-width="1.5"/>
+            <path d="M50 180 L200 60 L350 180" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+            <line x1="200" y1="60" x2="200" y2="280" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2 4"/>
+            <line x1="50" y1="220" x2="350" y2="220" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2 4"/>
+
+            <circle cx="120" cy="200" r="4" fill="#FFDB00" class="house-node n1"/>
+            <circle cx="200" cy="140" r="4" fill="#FFDB00" class="house-node n2"/>
+            <circle cx="280" cy="200" r="4" fill="#FFDB00" class="house-node n3"/>
+            <circle cx="160" cy="240" r="4" fill="#FFDB00" class="house-node n4"/>
+            <circle cx="260" cy="250" r="4" fill="#FFDB00" class="house-node n5"/>
+
+            <line x1="120" y1="200" x2="200" y2="140" stroke="rgba(255,219,0,0.3)" stroke-width="0.8"/>
+            <line x1="200" y1="140" x2="280" y2="200" stroke="rgba(255,219,0,0.3)" stroke-width="0.8"/>
+            <line x1="120" y1="200" x2="160" y2="240" stroke="rgba(255,219,0,0.3)" stroke-width="0.8"/>
+            <line x1="280" y1="200" x2="260" y2="250" stroke="rgba(255,219,0,0.3)" stroke-width="0.8"/>
+            <line x1="160" y1="240" x2="260" y2="250" stroke="rgba(255,219,0,0.3)" stroke-width="0.8"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="vision-content">
+        <div class="vision-block">
+          <div class="vblock-num">01</div>
+          <h4>Computación espacial</h4>
+          <p>Visualización inmersiva del mobiliario en el espacio real del cliente mediante dispositivos de nueva generación. La compra se desplaza del navegador al entorno físico.</p>
+        </div>
+        <div class="vision-block">
+          <div class="vblock-num">02</div>
+          <h4>Hogar conectado integrado</h4>
+          <p>DIRIGERA evoluciona hacia un sistema central que orquesta iluminación, climatización, seguridad y rutinas con compatibilidad multiplataforma.</p>
+        </div>
+        <div class="vision-block">
+          <div class="vblock-num">03</div>
+          <h4>IA agéntica de hogar</h4>
+          <p>Asistentes que entienden el contexto del usuario y proponen mejoras del espacio: redistribuciones, repuestos, mantenimiento predictivo.</p>
+        </div>
+        <div class="vision-block">
+          <div class="vblock-num">04</div>
+          <h4>Sostenibilidad por defecto</h4>
+          <p>Productos diseñados con trazabilidad completa, energía optimizada por IA y modelo circular como estándar, no como excepción.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-end" data-slide="8" data-title="Cierre">
+    <div class="end-layout">
+      <div class="end-pre">Fin de la presentación</div>
+      <h2 class="end-title">
+        Una empresa de muebles<br/>
+        <em>aprendiendo a ser una empresa de datos.</em>
+      </h2>
+      <p class="end-lead">
+        IKEA demuestra que la transformación digital es, sobre todo, una transformación cultural: poner el dato en el centro, formar a las personas, simplificar la operación y volver a colocar al cliente —y al planeta— en el foco de cada decisión.
+      </p>
+      <div class="end-meta">
+        <div class="end-meta-block">
+          <div class="end-meta-label">Proyecto</div>
+          <div class="end-meta-value">FP · Digitalización Empresarial · Curso 2025-2026</div>
+        </div>
+        <div class="end-meta-block">
+          <div class="end-meta-label">Autoría</div>
+          <div class="end-meta-value">Alba Ruiz · Melissa Frida · Brandon David</div>
+        </div>
+      </div>
+      <div class="end-thanks">
+        <span>Gracias</span>
+        <div class="end-paw" id="endPaw" title="Miau">
+          <svg viewBox="0 0 64 64" fill="currentColor">
+            <ellipse cx="32" cy="42" rx="14" ry="11"/>
+            <ellipse cx="14" cy="28" rx="6" ry="8"/>
+            <ellipse cx="50" cy="28" rx="6" ry="8"/>
+            <ellipse cx="22" cy="14" rx="5" ry="7"/>
+            <ellipse cx="42" cy="14" rx="5" ry="7"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="cat-runner" id="catRunner" aria-hidden="true">
+  <svg viewBox="0 0 120 60" class="cat-svg">
+    <g fill="#FFDB00" stroke="#001833" stroke-width="0.6">
+      <path d="M10,40 Q8,30 14,28 L18,20 L24,30 L40,30 L46,20 L52,28 Q58,30 56,40 L56,46 Q56,50 52,50 L14,50 Q10,50 10,46 Z"/>
+      <path d="M56,40 Q70,38 80,30 Q90,22 100,28 Q108,32 100,38 Q92,42 80,42" fill="none"/>
+      <circle cx="20" cy="34" r="1.2" fill="#001833"/>
+      <circle cx="26" cy="34" r="1.2" fill="#001833"/>
+      <path d="M22,38 L24,40 L26,38" fill="none" stroke="#001833" stroke-width="0.8"/>
+    </g>
+  </svg>
+</div>
+
+<div class="meow-toast" id="meowToast">miau ·</div>
+
+<script src="main.js"></script>
+</body>
+</html>
